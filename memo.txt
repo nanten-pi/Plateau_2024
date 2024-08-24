@@ -1,1 +1,12 @@
-FIrst!
+フロントエンドはReact,バックエンドはnode.js Express.js 系か Flask系
+https://zenn.dev/bony_chops/articles/70277f4be44a8d
+react vite flask 使ってる
+https://zenn.dev/ovrsa/articles/6e66c50f3b3429
+これもreact flask
+https://zenn.dev/ovrsa/articles/6e66c50f3b3429
+express react
+やっぱり同じjs系の組み合わせが多い
+https://qiita.com/demizoo/items/1fdf3896774f5292495c
+APIチックだからこれもあり?
+設計を煮詰めておいたほうがいいかも(とはいえまだまだ勉強中)
+
