@@ -9,4 +9,8 @@ express react
 https://qiita.com/demizoo/items/1fdf3896774f5292495c
 APIチックだからこれもあり?
 設計を煮詰めておいたほうがいいかも(とはいえまだまだ勉強中)
+npm install mongodb
+db
+npm install morgan
+http
 
