@@ -18,4 +18,9 @@ npm install eslint --save-dev
 eslintなどを使って本番環境で不要なモジュールは削除
 https://expressjs.com/ja/starter/generator.html
 もじらいわくぶちこめと
+https://developer.mozilla.org/ja/docs/Learn/Server-side/Express_Nodejs
+mozillaのちゅーとりある
+
+node+tree+reactで共有システムを作る。バックグラウンド側を多重化する。
+多分先にプロトタイプで作ってそれを後から多重化するべき
 
