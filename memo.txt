@@ -24,3 +24,10 @@ mozillaのちゅーとりある
 node+tree+reactで共有システムを作る。バックグラウンド側を多重化する。
 多分先にプロトタイプで作ってそれを後から多重化するべき
 
+TerriaJS
+https://www.mlit.go.jp/plateau/learning/tpc07-2/
+https://www.mlit.go.jp/plateau/learning/tpc07-1/
+https://github.com/MIERUNE/plateau-gis-converter
+https://github.com/Project-PLATEAU/PLATEAU-VIEW-1.1/blob/plateau/README.md
+これらを実装に活用する
+
