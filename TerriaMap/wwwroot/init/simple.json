@@ -7,6 +7,30 @@
 },
   "catalog": [
     {
+      "id": "plateau-shinjuku",
+      "type": "3d-tiles",
+      "name": "新宿区テクスチャ付き（低解像度）",
+      "url": " https://plateau.geospatial.jp/main/data/3d-tiles/bldg/13100_tokyo/13104_shinjuku-ku/low_resolution/tileset.json"
+    },
+    {
+      "id": "plateau-minato",
+      "type": "3d-tiles",
+      "name": "港区テクスチャ付き（低解像度）",
+      "url": "https://plateau.geospatial.jp/main/data/3d-tiles/bldg/13100_tokyo/13103_minato-ku/low_resolution/tileset.json"
+    },
+    {
+      "id":"plateau-hiroshima",
+      "type":"3d-tiles",
+      "name":"広島市データ",
+      "url":"https://assets.cms.plateau.reearth.io/assets/28/dda2f5-309c-4e2a-98f1-3961027ed4e5/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34101_naka-ku_lod2/tileset.json"
+    },
+    {
+      "name": "地形データ",
+      "type": "cesium-terrain",
+      "ionAssetId": 2488101,
+      "ionAccessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNjk0MTM4NC1lMWI0LTQxNTgtYjcxZS01ZWJhMGJlMTE1MWQiLCJpZCI6MTQ5ODk3LCJpYXQiOjE3MTUxNTEyODZ9.2aUmEQ2-fDsjf-XeC6-hZpwkgwLse3yXoXF4xTOvPAY"
+    },
+    {
       "id": "ZIdekvc10z",
       "type": "wms-group",
       "name": "Test",
