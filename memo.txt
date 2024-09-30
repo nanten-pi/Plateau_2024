@@ -5,3 +5,35 @@ terria js
 three js
 react
 vue,express
+6.引用・参考文献
+[1]愛知県岡崎市.”高度な浸水シミュレーション技術検証レポート”.愛知県岡崎市.2024/3
+https://www.mlit.go.jp/plateau/file/libraries/doc/plateau_tech_doc_0014_ver01.pdf
+[2]国土交通省.”TOPIC 1|3D都市モデルでできること[2/2]|3D都市モデルの特徴と活用法”.国
+土交通省.2022/10/22 https://www.mlit.go.jp/plateau/learning/tpc01-2/
+[3]国土交通省.”TOPIC6｜Cesiumで活用する[2/2]｜Reactを用いたCesiumの応用”国土交通省.2023/1/27 https://www.mlit.go.jp/plateau/learning/tpc06-2/
+[4]国土交通省 “TOPIC 7｜TerriaJSで活用する[2/2]｜TerriaJSで3D都市モデルを活用する”国土交通省 2023/1/13 https://www.mlit.go.jp/plateau/learning/tpc07-2/
+
+[5]中村大輔 坂本大吾 内田法彦 高畑一夫 橋本浩二 柴田義孝.”防災・災害情報の提供を支援するための資源管理システムの考察”.マルチメディア通信と情報処理.2002/3/28
+https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=34745&item_no=1&page_id=13&block_id=8
+[6]三好 匠 江口 眞人.”ユーザの通信ストレス軽減に向けた QoE 許容限界のモデル化”.電気通信普及財団 研究調査報告書 No.28.2013
+https://www.taf.or.jp/files/items/553/File/P435.pdf
+[7]坂本大吾 橋本浩二 高畑一夫 米本清字 柴田義孝.”無線通信を主体とした防災・災害情報ネットワークシステム”.マルチメディア通信と分散処理ワークショップ.2000/12
+https://ipsj.ixsq.nii.ac.jp/ej/?action=pages_view_main&active_action=repository_view_main_item_detail&item_id=88831&item_no=1&page_id=13&block_id=8
+
+7.謝辞
+広島県立広島高等学校情報科湯浅慎介先生には終始適切なご指導、ご助言を賜りました。ここに深謝の意を表します。
+
+https://www.mlit.go.jp/plateau/use-case/uc20-011/
+先行例
+この事例では手作業で作業を行っている
+https://disaportal.gsi.go.jp/
+ハザードマップの公開
+https://disaportal.gsi.go.jp/maps/?ll=34.323272,132.665362&z=14&base=pale&ls=seamless%7Ctameike_raster%2C0.8%7Cnaisui_raster%2C0.8%7Cflood_l2_kaokutoukai_kagan%2C0.8%7Cflood_l2_kaokutoukai_hanran%2C0.8%7Cflood_l2_keizoku%2C0.8%7Cflood_list%2C0.8%7Cflood_l1%2C0.8%7Cflood_list_l2%2C0.75%7Cdisaster1&disp=0110000010&vs=c1j0l0u0t0h0z0
+こいつのシステム解析
+
+https://www.mlit.go.jp/plateau/learning/tpc07-2/
+https://github.com/TerriaJS/TerriaJS
+https://github.com/Project-PLATEAU/PLATEAU-VIEW-1.1/blob/plateau/README.md
+
+TerrriaJSを使った実装のほうが簡単かもしれない
+レイヤリング
