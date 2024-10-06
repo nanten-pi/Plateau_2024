@@ -41,3 +41,5 @@ https://cesium.com/learn/cesiumjs-learn/cesiumjs-quickstart/
 https://zenn.dev/wkb/books/node-tutorial/viewer/3
 https://ics.media/tutorial-three/
 
+https://cesium.com/learn/3d-tiling/ion-tile-3d-models/
+せしうむのちゅーとりは終えました　データの読み込み方はこの通りだそう
