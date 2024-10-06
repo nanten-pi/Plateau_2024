@@ -6,10 +6,9 @@ import { App } from '../src/App'
 
 // Cesiumが実行時にWeb Workerのためのスクリプトを読み込むために、「6.3.2　環境構築」
 // で作成したpublic/cesiumの静的ファイルへのパスを指定します。
-
-//if (typeof window !== 'undefined') {
-    //window.CESIUM_BASE_URL = '/cesium'
-//}
+if (typeof window !== 'undefined') {
+    window.CESIUM_BASE_URL = '/cesium'
+}
 
 const Index: NextPage = () => {
     return (
