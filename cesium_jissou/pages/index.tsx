@@ -7,14 +7,14 @@ import { App } from '../src/App'
 // Cesiumが実行時にWeb Workerのためのスクリプトを読み込むために、「6.3.2　環境構築」
 // で作成したpublic/cesiumの静的ファイルへのパスを指定します。
 if (typeof window !== 'undefined') {
-    window.CESIUM_BASE_URL = '/cesium'
+  globalThis.CESIUM_BASE_URL = '/cesium'
 }
 
 const Index: NextPage = () => {
-    return (
-        <>
-            <Global
-                styles={css`
+  return (
+    <>
+      <Global
+        styles={css`
           html,
           body,
           #__next {
@@ -23,10 +23,10 @@ const Index: NextPage = () => {
             margin: 0;
           }
         `}
-            />
-            <App />
-        </>
-    )
+      />
+      <App />
+    </>
+  )
 }
 
 export default Index
