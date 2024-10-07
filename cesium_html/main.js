@@ -19,12 +19,17 @@ var imageProvider = new Cesium.UrlTemplateImageryProvider({
 });
 var current_image = viewer.scene.imageryLayers.addImageryProvider(imageProvider);
 
-// 神奈川県横浜市の建物データ（3D Tiles）
+// 広島市の建物データ（3D Tiles）
 var your_3d_tiles = viewer.scene.primitives.add(
     new Cesium.Cesium3DTileset({
         url: 'https://assets.cms.plateau.reearth.io/assets/3e/0338f0-82ba-4c36-811b-f755b8f9a4dc/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34102_higashi-ku_lod3_no_texture/tileset.json',
     })
 );
+var your_3d_tiles2 = viewer.scene.primitives.add(
+    new Cesium.Cesium3DTileset({
+        url:'https://assets.cms.plateau.reearth.io/assets/40/c42e8e-59c7-49d8-ae09-90eb10c99849/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34103_minami-ku_lod3/tileset.json'
+    })
+)
 // 初期表示時のカメラ位置
 viewer.camera.flyTo({
     destination: Cesium.Cartesian3.fromDegrees(139.63148565, 35.4545858, 10000.0),
