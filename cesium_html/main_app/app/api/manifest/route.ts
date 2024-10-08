@@ -1,22 +1,3 @@
-This is a Next.js Approuter PWA Template.
-
-This project uses `Dynamic Routes` for dynamic `manifest.json` and `start_url`.
-
-## Create manifest.json in api route
-
-you must create `.env.local` file.
-
-Example:
-```env:.env.loval
-NEXT_PUBLIC_BASE_URL=http://localhost:3000/
-```
-
-## Change manifest
-
-Change `app/api/manifest/route` file.
-
-Example:
-```ts:route.ts
 import { NextRequest, NextResponse } from 'next/server';
 
 interface Manifest {
@@ -74,14 +55,3 @@ export async function GET(req: NextRequest): Promise<NextResponse<Manifest>> {
 
   return NextResponse.json(manifest);
 }
-```
-
-> [!NOTE]
-> ```ts
-> type Props = {
->   params: {
->     id: string;
->   };
-> };
-> ```
-> `id` is linked to Dynamic Routes (`[]`) directory name.
