@@ -47,11 +47,13 @@ export const CesiumComponent: React.FunctionComponent<{
         });
         addedScenePrimitives.current = [];
     }, []);
+    
     const initializeCesiumJs = React.useCallback(async () => {
         if (cesiumViewer.current !== null) {
             //Using the Sandcastle example below
             //https://sandcastle.cesium.com/?src=3D%20Tiles%20Feature%20Styling.html
             const osmBuildingsTileset = await CesiumJs.createOsmBuildingsAsync();
+            
             //Clean up potentially already-existing primitives.
             cleanUpPrimitives();
 
