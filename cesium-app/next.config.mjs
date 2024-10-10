@@ -13,10 +13,12 @@ export default {
         patterns: [
           {
             from: resolve(__dirname, 'node_modules/cesium/Build/Cesium'),
-            to: 'public/cesium', // コピー先を指定
+            to: 'public/cesium',
+            force: true, // ファイルが存在していても強制的にコピー
           },
         ],
-      })
+      }),
+
     );
 
     // Cesium のモジュール解決のエイリアス設定
@@ -32,7 +34,7 @@ export default {
         zlib: false,
       };
     }
-
+    config.cache = true;
     return config;
   },
 };

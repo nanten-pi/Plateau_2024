@@ -3,6 +3,7 @@
 
 import { useEffect, useRef } from 'react';
 import * as Cesium from 'cesium';
+
 import 'cesium/Build/Cesium/Widgets/widgets.css';
 
 const accessToken = process.env.NEXT_PUBLIC_CESIUM_TOKEN;
