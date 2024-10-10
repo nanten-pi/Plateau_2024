@@ -1,19 +1,15 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// next.config.mjs
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import { resolve } from 'path';
 
-export default nextConfig;
-// next.config.js
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const path = require('path');
-
-module.exports = {
+export default {
   webpack: (config, { isServer }) => {
     // Cesium の静的アセットをコピー
     config.plugins.push(
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: 'node_modules/cesium/Build/Cesium',
+            from: './node_modules/cesium/Build/Cesium',
             to: 'public/cesium',
           },
         ],
@@ -23,7 +19,7 @@ module.exports = {
     // Cesium の設定を Webpack に追加
     config.resolve.alias = {
       ...config.resolve.alias,
-      cesium: path.resolve(__dirname, 'node_modules/cesium/Source'),
+      cesium: resolve('./node_modules/cesium/Source'),
     };
 
     if (!isServer) {
@@ -38,4 +34,3 @@ module.exports = {
     return config;
   },
 };
-
