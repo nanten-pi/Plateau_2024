@@ -83,7 +83,7 @@ export const Viewer = forwardRef<HTMLDivElement, ViewerProps>(
         viewerRef.current = viewer ?? null
       }
     }, [viewerRef, viewer])
- 
+
     return (
       <Root ref={mergeRefs([ref, forwardedRef])} {...props}>
         <Global
