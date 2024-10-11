@@ -4,13 +4,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import { ViewerContext } from './Viewer'
  
 export interface PlateauTilesetProps {
-  path: string
-  color?: string
+  path: string;
+  color?: string;
 }
  
 export const PlateauTileset: React.FC<PlateauTilesetProps> = ({
   path,
-  color = '#ffffff'
+  color = '#ff0000'
 }) => {
   const [tileset, setTileset] = useState<Cesium3DTileset>()
   const viewer = useContext(ViewerContext)
