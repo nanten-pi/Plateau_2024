@@ -1,25 +1,35 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+
+import Cesium, { Cartesian3 } from "cesium";
+import {
+  Viewer,
+  Entity,
+  PointGraphics,
+  EntityDescription,
+  Cesium3DTileset,
+} from "resium";
 
 function App() {
+  let viewer: Cesium.Viewer; // This will be raw Cesium's Viewer object.
+  const handleReady = (tileset: Cesium.Cesium3DTileset) => {
+    if (viewer) {
+      viewer.zoomTo(tileset);
+    }
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Viewer
+      full
+      ref={(e) => {
+        if (e?.cesiumElement) {
+          viewer = e.cesiumElement;
+        }
+      }}
+    >
+      <Cesium3DTileset
+        url="http://localhost:3000/13102_chuo-ku/tileset.json" // ダウンロードした地図データのパス
+        onReady={handleReady}
+      />
+    </Viewer>
   );
 }
 
