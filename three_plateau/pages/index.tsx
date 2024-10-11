@@ -3,7 +3,6 @@ import { NextPage } from 'next'
 import React from 'react'
 
 import { App } from '../src/App'
-
 const Index: NextPage = () => {
     return (
         <>

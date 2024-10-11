@@ -5,6 +5,9 @@ import React from 'react'
 
 import { PlateauTileset } from '../src/PlateauTileset'
 import { PlateauTilesetTransform } from '../src/PlateauTilesetTransform'
+export const config = {
+  unstable_runtimeJS: false // サーバーサイドレンダリングを無効化
+};
 
 export const App: React.FC = () => (
     <Canvas shadows>
