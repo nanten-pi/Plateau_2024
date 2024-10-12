@@ -9,7 +9,7 @@ export const Clock: React.FC = () => {
     if (viewer?.isDestroyed() !== false) {
       return
     }
-    JulianDate.fromDate(new Date(2022, 0, 1, 13), viewer.clock.currentTime)
+    JulianDate.fromDate(new Date(2024, 0, 1, 13), viewer.clock.currentTime)
   }, [viewer])
  
   return null
