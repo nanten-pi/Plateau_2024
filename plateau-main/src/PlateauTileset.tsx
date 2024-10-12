@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { Cesium3DTileset, Cesium3DTileStyle } from 'cesium';
+import { Cesium3DTileset, Cesium3DTileStyle} from 'cesium';
 import { ViewerContext } from './Viewer';
 
 interface PlateauTilesetProps {
