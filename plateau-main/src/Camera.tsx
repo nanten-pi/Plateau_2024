@@ -10,7 +10,7 @@ export const Camera: React.FC = () => {
       return
     }
     viewer.camera.setView({
-      destination: Cartesian3.fromDegrees(34.397876, 132.443996, 2000),
+      destination: Cartesian3.fromDegrees(34.397, 132.44, 2000),
       orientation: new HeadingPitchRoll(Math.PI / 2, -Math.PI / 4, 0)
     })
   }, [viewer])
