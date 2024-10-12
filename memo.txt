@@ -11,5 +11,13 @@ https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/terrain/
 https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/3d-tiles/plateau-3dtiles-streaming.md
 https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/ortho/plateau-ortho-streaming.md
 https://www.mlit.go.jp/plateau/learning/tpc06-2/
+https://qiita.com/kanakanho/items/07f0da84c3b40a2f465d
 以下cesium等のドキュメント
-https://cesium.com/learn/cesiumjs/ref-doc/
+https://cesium.com/learn/cesiumjs/ref-doc/ //cesium
+https://api.plateauview.mlit.go.jp/datacatalog/plateau-datasets//plateau api
+
+利用したサービス
+https://www.geocoding.jp/?q=35.658625%2C+139.745415 //位置情報と地図の変換
+https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/3d-tiles/specification.md　//都市コード
+
+

@@ -18,7 +18,7 @@ export const App: React.FC = () => {
       <Lighting />
       <PlateauTerrain />
       <PlateauOrtho />
-      <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/e4/24967c-e7c8-4909-a187-aa7af98f7ae5/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34101_naka-ku_lod2_no_texture/' />
+      <PlateauTileset path='bldg/340006_hiroshima/341002_hiroshima-shi/notexture' />
     </Viewer>
   )
 }
