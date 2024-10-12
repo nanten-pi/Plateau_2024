@@ -51,30 +51,30 @@ export const Viewer = forwardRef<HTMLDivElement, ViewerProps>(
         navigationHelpButton: false,
         navigationInstructionsInitiallyVisible: false
       })
- 
+
       // Viewerのピクセル密度をデバイスのピクセル密度に合わせます。
       // 注意：レンダリング品質は向上しますが、GPUへの負荷は大きくなります。
       viewer.resolutionScale = window.devicePixelRatio
- 
+
       // 今回は使用しないため、組み込みのImagery Layerを削除します。
       viewer.scene.imageryLayers.removeAll()
- 
+
       // 視覚的なパラメータ調整です。
       const scene = viewer.scene
       scene.skyBox = undefined as any
       scene.globe.baseColor = Color.WHITE
- 
+
       // デフォルトでは地形に対してデプステストが行われません（地面にめり込んでいる建物
       // やその部分が表示される）。PLATEAUの3D都市モデルを用いる場合には基本的にtrueに
       // することになるでしょう。
       scene.globe.depthTestAgainstTerrain = true
- 
+
       setViewer(viewer)
       return () => {
         viewer.destroy()
       }
     }, [])
- 
+
     // コンポーネント外から`viewerRef`経由でViewerオブジェクトを利用可能にします。
     useEffect(() => {
       if (typeof viewerRef === 'function') {

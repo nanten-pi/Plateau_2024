@@ -1,25 +1,21 @@
-import { ViewerContext } from './Viewer';
-import { useEffect, useContext } from 'react';
-import { CesiumTerrainProvider, IonResource } from 'cesium';
+import * as Cesium from 'cesium'
+import React, { useContext, useEffect } from 'react'
+
+import { ViewerContext } from './Viewer'
 
 export const PlateauTerrain: React.FC = () => {
-    const viewer = useContext(ViewerContext);
-
+    const viewer = useContext(ViewerContext)
     useEffect(() => {
         if (viewer?.isDestroyed() !== false) {
-            return;
+            return
         }
+        Cesium.Ion.defaultAccessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlNjk0MTM4NC1lMWI0LTQxNTgtYjcxZS01ZWJhMGJlMTE1MWQiLCJpZCI6MTQ5ODk3LCJpYXQiOjE3MTUxNTEyODZ9.2aUmEQ2-fDsjf-XeC6-hZpwkgwLse3yXoXF4xTOvPAY";
+        viewer.scene.setTerrain(
+            new Cesium.Terrain(
+                Cesium.CesiumTerrainProvider.fromIonAssetId(2488101),
+            ),
+        );
+    }, [viewer])
 
-        // https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/terrain/plateau-terrain-streaming.md
-        CesiumTerrainProvider.fromUrl(IonResource.fromAssetId(770371), {
-            requestVertexNormals: true,
-            requestWaterMask: true
-        }).then(terrainProvider => {
-            viewer.terrainProvider = terrainProvider;
-        }).catch(error => {
-            console.error('Failed to create terrain provider:', error);
-        });
-    }, [viewer]);
-
-    return null;
-};
+    return null
+}
