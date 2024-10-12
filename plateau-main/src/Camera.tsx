@@ -1,8 +1,8 @@
 import { Cartesian3, HeadingPitchRoll } from 'cesium'
 import React, { useContext, useEffect } from 'react'
- 
+
 import { ViewerContext } from './Viewer'
- 
+
 export const Camera: React.FC = () => {
   const viewer = useContext(ViewerContext)
   useEffect(() => {
@@ -14,6 +14,5 @@ export const Camera: React.FC = () => {
       orientation: new HeadingPitchRoll(Math.PI / 2, -Math.PI / 4, 0)
     })
   }, [viewer])
- 
   return null
 }

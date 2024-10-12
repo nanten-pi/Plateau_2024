@@ -18,6 +18,7 @@ export const PlateauTileset: React.FC<PlateauTilesetProps> = ({
     if (viewer?.isDestroyed() !== false) {
       return;
     }
+    //この形式の取得方法のレファレンスは公式から削除されていた、使えない場合memoの11行のurlを使う必要あり
     Cesium3DTileset.fromUrl(`https://plateau.geospatial.jp/main/data/3d-tiles/${path}/tileset.json`)
       .then((tileset) => {
         viewer.scene.primitives.add(tileset);

@@ -12,22 +12,22 @@ import React, {
   useState
 } from 'react'
 import { mergeRefs } from 'react-merge-refs'
- 
+
 const useIsomorphicLayoutEffect =
   typeof window !== 'undefined' ? useLayoutEffect : useEffect
- 
+
 export const ViewerContext = createContext<CesiumViewer | undefined>(undefined)
- 
+
 const Root = styled.div(css`
   position: relative;
   width: 100%;
   height: 100%;
 `)
- 
+
 export interface ViewerProps extends ComponentPropsWithRef<typeof Root> {
   viewerRef?: ForwardedRef<CesiumViewer>
 }
- 
+
 export const Viewer = forwardRef<HTMLDivElement, ViewerProps>(
   ({ viewerRef, children, ...props }, forwardedRef) => {
     const ref = useRef<HTMLDivElement>(null)

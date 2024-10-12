@@ -5,3 +5,11 @@ terria js
 three js
 react
 vue,express
+引用文献集
+以下cesiumでplateauの配信データを使う方法
+https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/terrain/plateau-terrain-streaming.md
+https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/3d-tiles/plateau-3dtiles-streaming.md
+https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/ortho/plateau-ortho-streaming.md
+https://www.mlit.go.jp/plateau/learning/tpc06-2/
+以下cesium等のドキュメント
+https://cesium.com/learn/cesiumjs/ref-doc/
