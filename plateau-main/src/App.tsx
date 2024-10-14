@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Style } from './Style'
 import { Camera } from './Camera'
 import { Clock } from './Clock'
 import { Lighting } from './Lighting'
@@ -12,11 +12,13 @@ import { PlateauTerrain } from './PlateauTerrain'
 import { PlateauModelLatest } from './PlateauModelLatest'
 import {OpenChiriinchizu} from './OpenChiriinchizu'
 import { ToolBar } from './ToolBar'
+import { ST } from 'next/dist/shared/lib/utils'
 export const App: React.FC = () => {
   const [isClicked, setIsClicked] = React.useState(false);
   return (
     <>
     <title>Plateau</title>
+    <Style />
     <div>
       <button onClick={() => setIsClicked(!isClicked)}>Click me</button>
         {isClicked && <HazardMapData />}
