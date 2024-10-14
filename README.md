@@ -21,6 +21,6 @@
 
 ## 設計に関して  
 
-詳細にsekkei.drawio.pngを参照  
+詳細に関してはsekkei.drawio.pngを参照  
 
 template_viewer.tsxのようにしてviewrerから持ってきてコードを書く  
