@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
+import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
@@ -97,7 +98,7 @@ function DashboardContent() {
             }}
           >
             <IconButton
-              edge="start"// ここでボタン増やしたいな
+              edge="start" // ここでボタンの種類増やしたいな
               color="inherit"
               aria-label="open drawer"
               onClick={toggleDrawer}
@@ -115,10 +116,11 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              研究アプリ
+              検証用アプリ
             </Typography>
           </Toolbar>
         </AppBar>
+        
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -131,7 +133,21 @@ function DashboardContent() {
             <IconButton onClick={toggleDrawer}>
               <ChevronLeftIcon />
             </IconButton>
+            <Typography
+              component="h1"
+              variant="h6"
+              color="#101010"
+              noWrap
+              sx={{ flexGrow: 1 }}
+            >
+              めにゅー
+            </Typography>
           </Toolbar>
+          <Divider />
+          <Divider />
+          <Button variant="text">土砂災害</Button>
+          <Divider />
+          <Button variant="text">情報共有</Button>
           <Divider />
         </Drawer>
         <Box
