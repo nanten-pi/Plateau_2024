@@ -28,6 +28,7 @@ import { PlateauTerrain } from './PlateauTerrain';
 import { OpenChiriinchizu } from './OpenChiriinchizu';
 import { PlateauModelLatest } from './PlateauModelLatest';
 import { HazardMapData } from './HazardMapData';
+import { XmlLoder } from './XmlLoder'
  //Material UI をいんぽしてつかってる
 const drawerWidth: number = 240;
 
@@ -120,7 +121,6 @@ function DashboardContent() {
             </Typography>
           </Toolbar>
         </AppBar>
-        
         <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -166,6 +166,7 @@ function DashboardContent() {
             <Camera /> {/* Ensure Camera is a valid React component */}
             <Clock />
             <Lighting />
+            <XmlLoder />
             <Poligon />
             <PlateauTerrain />
             <OpenChiriinchizu />

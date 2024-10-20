@@ -1,6 +1,6 @@
 import { ViewerContext } from './Viewer';
 import { useEffect, useContext } from 'react';
-//importしたい機能を「,」の後に追記してください
+//importしたい機能を「,」の後に追記
 import { UrlTemplateImageryProvider } from 'cesium';
 
 export const template_viewer: React.FC = () => {
@@ -12,8 +12,8 @@ export const template_viewer: React.FC = () => {
         }
         //ここから先に追記(中身を削除して)
         var positron = new UrlTemplateImageryProvider({
-            url: 'https://gbank.gsj.jp/seamless/v2/api/1.2/tiles/{z}/{y}/{x}.png',
-            credit: '地質調査総合センター'
+            url: 'url~~~.png',
+            credit: 'creditがある場合は記入'
         });
         //viewerに渡せます
         viewer.scene.imageryLayers.addImageryProvider(positron);
@@ -21,6 +21,6 @@ export const template_viewer: React.FC = () => {
 
     return null;
 };
-//最後はApp.tsxにモジュールを読み込ませてください
+//最後はApp.tsx(のviewer直下)にモジュールを読み込ませてください
 //例
 //import {template_viewer} from './template_viewer'
