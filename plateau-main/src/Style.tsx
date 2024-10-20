@@ -166,8 +166,6 @@ function DashboardContent() {
             <Camera /> {/* Ensure Camera is a valid React component */}
             <Clock />
             <Lighting />
-            <XmlLoder />
-            <Poligon />
             <PlateauTerrain />
             <OpenChiriinchizu />
             <HazardMapData path='https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_pref_data/34/{z}/{x}/{y}.png' />
