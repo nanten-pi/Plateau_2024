@@ -10,10 +10,14 @@ export const KmlLoder: React.FC = () => {
         if (viewer?.isDestroyed() !== false) {
             return;
         }
-        //ここから先に追記(中身を削除して)
-        var positron = KmlDataSource.load('C:\Users\h1\Desktop\Plateau_2024\plateau-main\data\testdata.kml');
-        //viewerに渡せます
-        viewer.dataSources.add(positron);
+        KmlDataSource.load('../data/testdata.kml')
+            .then(function (dataSource) {
+                viewer.dataSources.add(dataSource);
+                viewer.zoomTo(dataSource);  // KML内の全てのエンティティにズーム
+            })
+            .catch(function (error) {
+                console.error('Error loading KML:', error);
+            });
     }, [viewer]);
 
     return null;
