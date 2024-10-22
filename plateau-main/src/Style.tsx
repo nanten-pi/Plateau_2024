@@ -9,6 +9,9 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
+import Checkbox from '@mui/material/Checkbox';
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
 import Badge from '@mui/material/Badge';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
@@ -18,6 +21,10 @@ import Button from '@mui/material/Button';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import NotificationsIcon from '@mui/icons-material/Notifications';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {Viewer} from './Viewer';
 import { PlateauOrtho } from './PlateauOrtho';
 import { Camera } from './Camera'; // Assuming you have a Camera component in your project
@@ -87,6 +94,10 @@ function DashboardContent() {
   const toggleDrawer = () => {
     setOpen(!open);
   };
+  const [sort, setSort] = React.useState(''); //ここからプルダウンのやつです
+  const handleChange = (event: SelectChangeEvent) => {
+    setSort(event.target.value as string);
+  };
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -147,8 +158,37 @@ function DashboardContent() {
           <Divider />
           <Button variant="text">土砂災害</Button>
           <Divider />
+          <FormGroup>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="Plateau地図" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="地理院地図" />
+          </FormGroup>
+          <Divider />
+          <Divider />
           <Button variant="text">情報共有</Button>
           <Divider />
+          <FormGroup>
+            <FormControlLabel control={<Checkbox defaultChecked />} label="浸水" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="土石" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="雨雲" />
+            <FormControlLabel control={<Checkbox defaultChecked />} label="津波" />
+          </FormGroup>
+          <Divider />
+          <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <InputLabel id="demo-simple-select-label">Age</InputLabel>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          //value={sort}これは使いたいときどうぞ
+          label="Sort"
+          //onChange={handleChange}これは使いたいときどうぞ
+        >
+          <MenuItem value={0}>Layer1</MenuItem>
+          <MenuItem value={1}>Layer2</MenuItem>
+          <MenuItem value={2}>Layer3</MenuItem>
+        </Select>
+      </FormControl>
+    </Box>
         </Drawer>
         <Box
           component="main"
