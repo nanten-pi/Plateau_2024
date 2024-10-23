@@ -38,6 +38,7 @@ import { HazardMapData } from './HazardMapData';
 import { XmlLoder } from './XmlLoder'
 import { KmlLoder } from './KmlLoder';
 import { GeologicalSurveyData } from './GeologicalSurveyData';
+import { Pointer } from './Pointer';
  //Material UI をいんぽしてつかってる
 const drawerWidth: number = 240;
 
@@ -211,11 +212,11 @@ function DashboardContent() {
             <Lighting />
             <PlateauTerrain />
             <OpenChiriinchizu />
-            <KmlLoder />
             <HazardMapData path='https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_pref_data/34/{z}/{x}/{y}.png' />
             <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/cb/7bac72-24c1-4901-b1f4-9373e2feb738/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34102_higashi-ku_lod2' />
             <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/5d/e5c519-682e-43fc-9bbb-744b8dd665ba/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34103_minami-ku_lod2' />
             <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/a6/2ab468-91d9-4f5b-bdb2-058037d6e257/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34105_asaminami-ku_lod1' />
+            <Pointer />
           </Viewer>
         </Box>
       </Box>

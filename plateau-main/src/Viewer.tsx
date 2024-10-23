@@ -44,7 +44,6 @@ export const Viewer = forwardRef<HTMLDivElement, ViewerProps>(
         fullscreenButton: false,
         geocoder: false,
         homeButton: false,
-        infoBox: false,
         sceneModePicker: false,
         selectionIndicator: false,
         timeline: false,
@@ -96,6 +95,13 @@ export const Viewer = forwardRef<HTMLDivElement, ViewerProps>(
               width: 100%;
               height: 100%;
             }
+            .cesium-infoBox {
+            bottom: auto !important;
+            top: 10px !important;
+            right: 10px !important;
+            left: auto !important;
+            width: 300px !important;
+          }
           `}
         />
         <ViewerContext.Provider value={viewer}>

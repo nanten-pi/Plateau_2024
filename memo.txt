@@ -6,7 +6,8 @@ three js
 react
 vue,express
 mklink /D C:\Users\h1\Desktop\Plateau_2024\plateau-main\public\cesium C:\Users\h1\Desktop\Plateau_2024\plateau-main\node_modules\cesium\Build\Cesium
-
+memo
+w
 引用文献集
 以下cesiumでplateauの配信データを使う方法
 https://github.com/Project-PLATEAU/plateau-streaming-tutorial/blob/main/terrain/plateau-terrain-streaming.md
