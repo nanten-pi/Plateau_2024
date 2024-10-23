@@ -10,7 +10,7 @@ export const KmlLoder: React.FC = () => {
         if (viewer?.isDestroyed() !== false) {
             return;
         }
-        KmlDataSource.load('../data/testdata.kml')
+        KmlDataSource.load('~/data/testdata.kml')
             .then(function (dataSource) {
                 viewer.dataSources.add(dataSource);
                 viewer.zoomTo(dataSource);  // KML内の全てのエンティティにズーム
