@@ -7,26 +7,28 @@ app.use(express.urlencoded({ extended: true }));
 
 //sqlite3関連設定
 const sqlite3 = require("sqlite3");
-const db = new sqlite3.Database("./test.db", (err) => {
+const db = new sqlite3.Database("./main.db", (err) => {
     if (err) {
-        console.error("database error: " + err.message);
+        console.error("database error: " + err.messlongitude,latitude,altitude);
     } else {
         db.serialize(() => {
             //都度table削除（あれば）
-            db.run("drop table if exists members");
+            db.run("drop table if exists lists");
             //table生成（無ければ）
-            db.run("create table if not exists members( \
+            db.run("create table if not exists lists( \
                 id integer primary key autoincrement, \
                 name nverchar(32), \
-                age integer \
+                longitude integer, \
+                latitude integer \
+                altitude integer \
             )", (err) => {
                 if (err) {
-                    console.error("table error: " + err.message);
+                    console.error("table error: " + err.messlongitude,latitude,altitude);
                 } else {
                     //初期データinsert
-                    db.run("insert into members(name,age) values(?,?)", "hoge", 11);
-                    db.run("insert into members(name,age) values(?,?)", "foo", 22);
-                    db.run("insert into members(name,age) values(?,?)", "bar", 33);
+                    db.run("insert into lists(name,longitude,latitude,altitude) values(?,?)", "hoge", 11);
+                    db.run("insert into lists(name,longitude,latitude,altitude) values(?,?)", "foo", 22);
+                    db.run("insert into lists(name,longitude,latitude,altitude) values(?,?)", "bar", 33);
                 }
             });
         });
@@ -43,14 +45,14 @@ app.get("/", (req, res) => {
 });
 
 //create
-app.post("/members", (req, res) => {
+app.post("/lists", (req, res) => {
     const reqBody = req.body;
-    const stmt = db.prepare("insert into members(name,age) values(?,?)"); //lastID取得のため
-    stmt.run(reqBody.name, reqBody.age, (err, result) => { //lambda式を使うとthis.lastIDでは取得できない
+    const stmt = db.prepare("insert into lists(name,longitude,latitude,altitude) values(?,?)"); //lastID取得のため
+    stmt.run(reqBody.name, reqBody.longitude,latitude,altitude, (err, result) => { //lambda式を使うとthis.lastIDでは取得できない
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "message": err.message
+                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
             });
             return;
         } else {
@@ -62,52 +64,52 @@ app.post("/members", (req, res) => {
     });
 });
 
-//get members
-app.get("/members", (req, res) => {
-    db.all("select * from members", [], (err, rows) => {
+//get lists
+app.get("/lists", (req, res) => {
+    db.all("select * from lists", [], (err, rows) => {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "message": err.message
+                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
             });
             return;
         } else {
             res.status(200).json({
                 "status": "OK",
-                "members": rows
+                "lists": rows
             });
         }
     });
 });
 
 //get member
-app.get("/members/:id", (req, res) => {
+app.get("/lists/:id", (req, res) => {
     const id = req.params.id;
-    db.get("select * from members where id = ?", id, (err, row) => {
+    db.get("select * from lists where id = ?", id, (err, row) => {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "message": err.message
+                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
             });
             return;
         } else {
             res.status(200).json({
                 "status": "OK",
-                "members": row
+                "lists": row
             });
         }
     })
 })
 
 //update member
-app.patch("/members", (req, res) => {
+app.patch("/lists", (req, res) => {
     const reqBody = req.body;
-    const stmt = db.prepare("update members set name = ?, age = ? where id = ?");
-    stmt.run(reqBody.name, reqBody.age, reqBody.id, (err, result) => {
+    const stmt = db.prepare("update lists set name = ?, longitude,latitude,altitude = ? where id = ?");
+    stmt.run(reqBody.name, reqBody.longitude,latitude,altitude, reqBody.id, (err, result) => {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "message": err.message
+                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
             });
             return;
         } else {
@@ -120,14 +122,14 @@ app.patch("/members", (req, res) => {
 })
 
 //delete member
-app.delete("/members/:id", (req, res) => {
+app.delete("/lists/:id", (req, res) => {
     const id = req.params.id;
-    const stmt = db.prepare("delete from members where id = ?");
+    const stmt = db.prepare("delete from lists where id = ?");
     stmt.run(id, (err, result) => {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "message": err.message
+                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
             });
             return;
         } else {
