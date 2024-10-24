@@ -36,8 +36,8 @@ const db = new sqlite3.Database("./main.db", (err) => {
 });
 
 //リッスン開始
-app.listen(3000, () => {
-    console.log("Start server on port 3000.");
+app.listen(3001, () => {
+    console.log("Start server on port 3001.");
 });
 
 app.get("/", (req, res) => {

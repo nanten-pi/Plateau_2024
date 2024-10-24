@@ -16,47 +16,61 @@ import { ST } from 'next/dist/shared/lib/utils'
 import { Poligon } from './Poligon'
 import { KmlLoder } from './KmlLoder'
 import { Pointer,PointerProps} from './Pointer'
+import Fetch from './JsoReader'
 
 export const App: React.FC = () => {
-  const [data, setData] = useState<PointerProps[]>([]);
+
+  interface ListItem {
+    id: number;
+    name: string;
+    longitude: number;
+    latitude: number;
+    altitude: number;
+  }
+
+  const [lists, setLists] = useState<ListItem[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch('./data/data.json');
-        const jsonData = await response.json();
-        setData(jsonData);
-      } catch (error) {
+    fetch('http://localhost:3001/lists') // Express APIのエンドポイント
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        setLists(data.lists); // APIのデータをStateにセット/ ローディング状態を解除
+      })
+      .catch((error) => {
         console.error('Error fetching data:', error);
-      }
-    };
-
-    fetchData();
+      });
   }, []);
   return (
     <>
     <title>Plateau</title>
-    <Viewer>
-        {data.map((item, index) => (
-          <Pointer
-            key={index}
-            longitude={item.longitude}
-            latitude={item.latitude}
-            altitude={item.altitude}
-            names={item.names}
-            descriptions={item.descriptions}
-          />
+    <div>
+      <h1>Lists</h1>
+      <ul>
+        {lists.map((list) => (
+          <li key={list.id}>
+            Name: {list.name}, Longitude: {list.longitude}, Latitude: {list.latitude}, Altitude: {list.altitude}
+          </li>
         ))}
-      <Camera />
-      <Clock />
-      <Lighting />
-      <PlateauTerrain />
-      <OpenChiriinchizu />
-      <HazardMapData path='https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_pref_data/34/{z}/{x}/{y}.png' />
-      <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/cb/7bac72-24c1-4901-b1f4-9373e2feb738/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34102_higashi-ku_lod2' />
-      <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/5d/e5c519-682e-43fc-9bbb-744b8dd665ba/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34103_minami-ku_lod2' />
-      <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/a6/2ab468-91d9-4f5b-bdb2-058037d6e257/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34105_asaminami-ku_lod1' />
-    </Viewer>
+      </ul>
+    </div>
+    <Fetch />
+      <Viewer>
+        <Camera />
+        <Clock />
+        <Lighting />
+        <PlateauTerrain />
+        <OpenChiriinchizu />
+        <HazardMapData path='https://disaportaldata.gsi.go.jp/raster/01_flood_l2_shinsuishin_pref_data/34/{z}/{x}/{y}.png' />
+        <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/cb/7bac72-24c1-4901-b1f4-9373e2feb738/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34102_higashi-ku_lod2' />
+        <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/5d/e5c519-682e-43fc-9bbb-744b8dd665ba/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34103_minami-ku_lod2' />
+        <PlateauModelLatest path='https://assets.cms.plateau.reearth.io/assets/a6/2ab468-91d9-4f5b-bdb2-058037d6e257/34100_hirosima-shi_city_2022_citygml_3_op_bldg_3dtiles_34105_asaminami-ku_lod1' />
+      </Viewer>
     </>
   )
 }
