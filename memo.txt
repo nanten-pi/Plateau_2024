@@ -7,6 +7,9 @@ react
 vue,express
 mklink /D C:\Users\h1\Desktop\Plateau_2024\plateau-main\public\cesium C:\Users\h1\Desktop\Plateau_2024\plateau-main\node_modules\cesium\Build\Cesium
 memo
+access db api
+DBAPIを自前で作って、叩く
+叩いて受け取り、叩いて受け渡し
 w
 引用文献集
 以下cesiumでplateauの配信データを使う方法
