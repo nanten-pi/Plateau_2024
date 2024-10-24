@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database("./main.db", (err) => {
     if (err) {
-        console.error("database error: " + err.messlongitude,latitude,altitude);
+        console.error("database error: " + err.message);
     } else {
         db.serialize(() => {
             //都度table削除（あれば）
@@ -17,18 +17,18 @@ const db = new sqlite3.Database("./main.db", (err) => {
             //table生成（無ければ）
             db.run("create table if not exists lists( \
                 id integer primary key autoincrement, \
-                name nverchar(32), \
+                name text, \
                 longitude integer, \
-                latitude integer \
+                latitude integer, \
                 altitude integer \
             )", (err) => {
                 if (err) {
-                    console.error("table error: " + err.messlongitude,latitude,altitude);
+                    console.error("table error: " + err.message);
                 } else {
                     //初期データinsert
-                    db.run("insert into lists(name,longitude,latitude,altitude) values(?,?)", "hoge", 11);
-                    db.run("insert into lists(name,longitude,latitude,altitude) values(?,?)", "foo", 22);
-                    db.run("insert into lists(name,longitude,latitude,altitude) values(?,?)", "bar", 33);
+                    db.run("insert into lists(name,longitude,latitude,altitude) values('Hiroshimaa',133.4553 ,34.3853, 50)");
+                    db.run("insert into lists(name,longitude,latitude,altitude) values('Hiroshimab',134.4553 ,35.3853, 50)");
+                    db.run("insert into lists(name,longitude,latitude,altitude) values('Hiroshimac',133.4553 ,36.3853 , 50)");
                 }
             });
         });
@@ -47,12 +47,12 @@ app.get("/", (req, res) => {
 //create
 app.post("/lists", (req, res) => {
     const reqBody = req.body;
-    const stmt = db.prepare("insert into lists(name,longitude,latitude,altitude) values(?,?)"); //lastID取得のため
-    stmt.run(reqBody.name, reqBody.longitude,latitude,altitude, (err, result) => { //lambda式を使うとthis.lastIDでは取得できない
+    const stmt = db.prepare("insert into lists(name,longitude,latitude,altitude) values(?,?,?,?)"); //lastID取得のため
+    stmt.run(reqBody.name, reqBody.longitude, reqBody.latitude, reqBody.altitude, (err, result) => { //lambda式を使うとthis.lastIDでは取得できない
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
+                "message": err.message
             });
             return;
         } else {
@@ -70,7 +70,7 @@ app.get("/lists", (req, res) => {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
+                "message": err.message
             });
             return;
         } else {
@@ -89,7 +89,7 @@ app.get("/lists/:id", (req, res) => {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
+                "message": err.message
             });
             return;
         } else {
@@ -101,42 +101,42 @@ app.get("/lists/:id", (req, res) => {
     })
 })
 
-//update member
+// update member
 app.patch("/lists", (req, res) => {
-    const reqBody = req.body;
-    const stmt = db.prepare("update lists set name = ?, longitude,latitude,altitude = ? where id = ?");
-    stmt.run(reqBody.name, reqBody.longitude,latitude,altitude, reqBody.id, (err, result) => {
+    const { id, name, longitude, latitude, altitude } = req.body;
+    const stmt = db.prepare("UPDATE lists SET name = ?, longitude = ?, latitude = ?, altitude = ? WHERE id = ?");
+    stmt.run(name, longitude, latitude, altitude, id, function(err) {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
+                "message": err.message
             });
             return;
         } else {
             res.status(200).json({
                 "status": "OK",
-                "updatedID": stmt.changes
+                "updatedID": this.changes
             });
         }
-    })
-})
+    });
+});
 
 //delete member
 app.delete("/lists/:id", (req, res) => {
     const id = req.params.id;
-    const stmt = db.prepare("delete from lists where id = ?");
-    stmt.run(id, (err, result) => {
+    const stmt = db.prepare("DELETE FROM lists WHERE id = ?");
+    stmt.run(id, function(err) {
         if (err) {
             res.status(400).json({
                 "status": "error",
-                "messlongitude,latitude,altitude": err.messlongitude,latitude,altitude
+                "message": err.message
             });
             return;
         } else {
             res.status(200).json({
                 "status": "OK",
-                "deletedID": stmt.changes
+                "deletedID": this.changes
             });
         }
-    })
-})
+    });
+});
