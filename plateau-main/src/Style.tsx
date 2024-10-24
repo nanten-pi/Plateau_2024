@@ -216,7 +216,7 @@ function DashboardContent() {
           <MenuItem value={2}>Layer3</MenuItem>
           <React.Fragment>
             <Button variant="outlined" onClick={handleClickOpen}>
-              Open full-screen dialog
+              Share your infomations
             </Button>
             <Dialog
               fullScreen
@@ -226,20 +226,7 @@ function DashboardContent() {
             >
               <AppBar sx={{ position: 'relative' }}>
                 <Toolbar>
-                  <IconButton
-                    edge="start"
-                    color="inherit"
-                    onClick={handleClose}
-                    aria-label="close"
-                  >
-                    <CloseIcon />
-                  </IconButton>
-                  <Typography sx={{ ml: 2, flex: 1 }} variant="h6" component="div">
-                    Sound
-                  </Typography>
-                  <Button autoFocus color="inherit" onClick={handleClose}>
-                    save
-                  </Button>
+                  
                 </Toolbar>
               </AppBar>
               <List>
