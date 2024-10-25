@@ -49,18 +49,12 @@ export const App: React.FC = () => {
   return (
     <>
     <title>Plateau</title>
-    <div>
-      <h1>Lists</h1>
-      <ul>
+      <Viewer>
         {lists.map((list) => (
           <li key={list.id}>
-            Name: {list.name}, Longitude: {list.longitude}, Latitude: {list.latitude}, Altitude: {list.altitude}
             <Pointer longitude={list.longitude} latitude={list.latitude} altitude={list.altitude} names={list.name}/>
           </li>
         ))}
-      </ul>
-    </div>
-      <Viewer>
         <Camera />
         <Clock />
         <Lighting />

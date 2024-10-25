@@ -7,7 +7,7 @@ react
 vue,express
 mklink /D C:\Users\h1\Desktop\Plateau_2024\plateau-main\public\cesium C:\Users\h1\Desktop\Plateau_2024\plateau-main\node_modules\cesium\Build\Cesium
 mklink /D C:\Users\h1\Documents\Plateau_2024\plateau-main\public\cesium C:\Users\h1\Documents\Plateau_2024\plateau-main\node_modules\cesium\Build\Cesium
-memo
+curl -s -X POST -H "Content-Type: application/json" -d "{\"name\":\"Hiroshimad\",\"longitude\":133.4553,\"latitude\":34.3853,\"altitude\":100}" http://localhost:3001/lists
 access db api
 DBAPIを自前で作って、叩く
 叩いて受け取り、叩いて受け渡し
