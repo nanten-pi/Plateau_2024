@@ -50,14 +50,7 @@ export const App: React.FC = () => {
     <>
     <title>Plateau</title>
     <div>
-      <h1>Lists</h1>
-      <ul>
-        {lists.map((list) => (
-          <li key={list.id}>
-            Name: {list.name}, Longitude: {list.longitude}, Latitude: {list.latitude}, Altitude: {list.altitude}
-          </li>
-        ))}
-      </ul>
+
     </div>
       <Style />
     </>
