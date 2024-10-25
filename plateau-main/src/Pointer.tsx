@@ -7,14 +7,12 @@ export interface PointerProps {
     latitude: number;
     altitude: number;
     names: string;
-    descriptions: string;
 }
 export const Pointer: React.FC<PointerProps> = ({
     longitude,
     latitude,
     altitude,
     names,
-    descriptions
 }) => {
     const viewer = useContext(ViewerContext);
 
@@ -24,14 +22,14 @@ export const Pointer: React.FC<PointerProps> = ({
         }
         var point = viewer.entities.add({
             name: names, //レイヤ名
-            description: descriptions,　//レイヤの説明
+            description: 'テスト',　//レイヤの説明
             position: Cartesian3.fromDegrees(longitude, latitude, altitude), //経度,緯度,高さ
             point: {
                 pixelSize: 10, //ポイントのサイズ
                 color: Color.BLUE //ポイントの色
             }
         });
-    }, [viewer, longitude, latitude, altitude, names, descriptions]);
+    }, [viewer, longitude, latitude, altitude, names]);
 
     return null;
 };

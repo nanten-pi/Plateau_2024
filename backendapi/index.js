@@ -1,9 +1,11 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 
 //POSTできたりするように（おまじない）
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 //sqlite3関連設定
 const sqlite3 = require("sqlite3");

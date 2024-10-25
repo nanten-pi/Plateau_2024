@@ -22,6 +22,7 @@ const Fetch = () => {
                 return res.json();
             })
             .then(data => {
+                console.log(data);
                 setPosts(data.lists);
             })
             .catch(error => {

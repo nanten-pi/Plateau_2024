@@ -6,6 +6,7 @@ three js
 react
 vue,express
 mklink /D C:\Users\h1\Desktop\Plateau_2024\plateau-main\public\cesium C:\Users\h1\Desktop\Plateau_2024\plateau-main\node_modules\cesium\Build\Cesium
+mklink /D C:\Users\h1\Documents\Plateau_2024\plateau-main\public\cesium C:\Users\h1\Documents\Plateau_2024\plateau-main\node_modules\cesium\Build\Cesium
 memo
 access db api
 DBAPIを自前で作って、叩く
