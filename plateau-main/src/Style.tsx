@@ -30,6 +30,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
 import {Viewer} from './Viewer';
 import { PlateauOrtho } from './PlateauOrtho';
 import { Camera } from './Camera'; // Assuming you have a Camera component in your project
@@ -179,12 +180,12 @@ function DashboardContent() {
               noWrap
               sx={{ flexGrow: 1 }}
             >
-              めにゅー
+              
             </Typography>
           </Toolbar>
           <Divider />
           <Divider />
-          <Button variant="text">土砂災害</Button>
+          <Button variant="text">地図種</Button>
           <Divider />
           <FormGroup>
             <FormControlLabel control={<Checkbox defaultChecked />} label="Plateau地図" />
@@ -192,7 +193,7 @@ function DashboardContent() {
           </FormGroup>
           <Divider />
           <Divider />
-          <Button variant="text">情報共有</Button>
+          <Button variant="text">災害表示</Button>
           <Divider />
           <FormGroup>
             <FormControlLabel control={<Checkbox defaultChecked />} label="浸水" />
@@ -200,6 +201,49 @@ function DashboardContent() {
             <FormControlLabel control={<Checkbox defaultChecked />} label="雨雲" />
             <FormControlLabel control={<Checkbox defaultChecked />} label="津波" />
           </FormGroup>
+          <Divider />
+          <React.Fragment>
+            <Button variant="outlined" onClick={handleClickOpen}>
+              Share your infomations
+            </Button>
+            <Dialog
+              fullScreen
+              open={openinfo}
+              onClose={handleClose}
+              TransitionComponent={Transition}
+            >
+              <AppBar sx={{ position: 'relative' }}>
+                <Toolbar>
+                <Button autoFocus color="inherit" onClick={handleClose}>
+              save
+            </Button>
+                </Toolbar>
+              </AppBar>
+              <TextField
+          required
+          id="outlined-required"
+          label="タイトル"
+        />
+              <Divider />
+              <TextField
+          required
+          id="outlined-required"
+          label="場所"
+        />
+              <Divider />
+              <TextField
+          required
+          id="outlined-required"
+          label="日時"
+        />
+              <Divider />
+              <TextField
+          required
+          id="outlined-required"
+          label="詳細な内容"
+        />
+            </Dialog>
+          </React.Fragment>
           <Divider />
           <Box sx={{ minWidth: 120 }}>
             <FormControl fullWidth>
@@ -214,35 +258,6 @@ function DashboardContent() {
           <MenuItem value={0}>Layer1</MenuItem>
           <MenuItem value={1}>Layer2</MenuItem>
           <MenuItem value={2}>Layer3</MenuItem>
-          <React.Fragment>
-            <Button variant="outlined" onClick={handleClickOpen}>
-              Share your infomations
-            </Button>
-            <Dialog
-              fullScreen
-              open={openinfo}
-              onClose={handleClose}
-              TransitionComponent={Transition}
-            >
-              <AppBar sx={{ position: 'relative' }}>
-                <Toolbar>
-                  
-                </Toolbar>
-              </AppBar>
-              <List>
-                <ListItemButton>
-                  <ListItemText primary="Phone ringtone" secondary="Titania" />
-                </ListItemButton>
-                <Divider />
-                <ListItemButton>
-                  <ListItemText
-                    primary="Default notification ringtone"
-                    secondary="Tethys"
-                  />
-                </ListItemButton>
-              </List>
-            </Dialog>
-          </React.Fragment>
         </Select>
       </FormControl>
     </Box>
