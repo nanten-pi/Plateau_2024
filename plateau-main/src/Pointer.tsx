@@ -25,8 +25,8 @@ export const Pointer: React.FC<PointerProps> = ({
             description: 'テスト',　//レイヤの説明
             position: Cartesian3.fromDegrees(longitude, latitude, altitude), //経度,緯度,高さ
             point: {
-                pixelSize: 30, //ポイントのサイズ
-                color: Color.RED //ポイントの色
+                pixelSize: 15, //ポイントのサイズ
+                color: Color.GREEN //ポイントの色
             }
         });
     }, [viewer, longitude, latitude, altitude, names]);

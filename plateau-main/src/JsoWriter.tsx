@@ -29,7 +29,7 @@ export const JsoWriter: React.FC = () => {
                 const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
                 const longitude = Cesium.Math.toDegrees(cartographic.longitude);
                 const latitude = Cesium.Math.toDegrees(cartographic.latitude);
-                const altitude = cartographic.height;
+                const altitude = cartographic.height + 100;
 
                 // requestDataにクリック位置の座標をセット
                 setRequestData({
