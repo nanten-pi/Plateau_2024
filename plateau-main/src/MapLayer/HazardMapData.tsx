@@ -1,8 +1,12 @@
-import { ViewerContext } from './Viewer';
+import { ViewerContext } from '../Viewer';
 import { useEffect, useContext } from 'react';
 import { UrlTemplateImageryProvider } from 'cesium';
-
-export const GeologicalSurveyData: React.FC = () => {
+interface HazardMapProps {
+    path: string;
+}
+export const HazardMapData: React.FC<HazardMapProps> = ({
+    path
+}) => {
     const viewer = useContext(ViewerContext);
 
     useEffect(() => {
@@ -10,8 +14,8 @@ export const GeologicalSurveyData: React.FC = () => {
             return;
         }
         var positron = new UrlTemplateImageryProvider({
-            url: 'https://gbank.gsj.jp/seamless/v2/api/1.2/tiles/{z}/{y}/{x}.png',
-            credit: '地質調査総合センター'
+            url: path,
+            credit: '重ねるハザードマップ(国土交通省)'
         });
         viewer.scene.imageryLayers.addImageryProvider(positron);
     }, [viewer]);

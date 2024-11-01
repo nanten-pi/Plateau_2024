@@ -1,4 +1,4 @@
-import { ViewerContext } from './Viewer';
+import { ViewerContext } from '../Viewer';
 import { useEffect, useContext } from 'react';
 //OpenStreetMap方式の読み込みとUrlTemplate式の読み込みがあるそうです
 import { OpenStreetMapImageryProvider, UrlTemplateImageryProvider } from 'cesium';

@@ -31,18 +31,18 @@ import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {Viewer} from './Viewer';
-import { PlateauOrtho } from './PlateauOrtho';
-import { Camera } from './Camera'; // Assuming you have a Camera component in your project
-import { Clock } from './Clock';
-import { Lighting } from './Lighting';
-import { Poligon } from './Poligon';
-import { PlateauTerrain } from './PlateauTerrain';
-import { OpenChiriinchizu } from './OpenChiriinchizu';
+import { PlateauOrtho } from './MapLayer/PlateauOrtho';
+import { Camera } from './Setting/Camera'; // Assuming you have a Camera component in your project
+import { Clock } from './Setting/Clock';
+import { Lighting } from './Setting/Lighting';
+import { Poligon } from './Temp/Poligon';
+import { PlateauTerrain } from './Setting/PlateauTerrain';
+import { OpenChiriinchizu } from './MapLayer/OpenChiriinchizu';
 import { PlateauModelLatest } from './PlateauModelLatest';
-import { HazardMapData } from './HazardMapData';
-import { XmlLoder } from './XmlLoder'
-import { KmlLoder } from './KmlLoder';
-import { GeologicalSurveyData } from './GeologicalSurveyData';
+import { HazardMapData } from './MapLayer/HazardMapData';
+import { XmlLoder } from './Temp/XmlLoder'
+import { KmlLoder } from './Temp/KmlLoder';
+import { GeologicalSurveyData } from './MapLayer/GeologicalSurveyData';
 import { Pointer } from './Pointer';
 import { TransitionProps } from '@mui/material/transitions';
  //Material UI をいんぽしてつかってる

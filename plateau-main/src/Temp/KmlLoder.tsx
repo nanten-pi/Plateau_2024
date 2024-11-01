@@ -1,4 +1,4 @@
-import { ViewerContext } from './Viewer';
+import { ViewerContext } from '../Viewer';
 import { useEffect, useContext } from 'react';
 //importしたい機能を「,」の後に追記
 import { KmlDataSource } from 'cesium';

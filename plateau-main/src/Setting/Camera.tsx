@@ -1,7 +1,7 @@
 import { Cartesian3, HeadingPitchRoll } from 'cesium'
 import React, { useContext, useEffect } from 'react'
 
-import { ViewerContext } from './Viewer'
+import { ViewerContext } from '../Viewer'
 
 export const Camera: React.FC = () => {
   const viewer = useContext(ViewerContext)

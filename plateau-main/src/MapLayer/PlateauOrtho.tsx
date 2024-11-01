@@ -1,4 +1,4 @@
-import { ViewerContext } from './Viewer';
+import { ViewerContext } from '../Viewer';
 import { useEffect, useContext } from 'react';
 import { UrlTemplateImageryProvider } from 'cesium';
 

@@ -1,7 +1,7 @@
 import * as Cesium from 'cesium'
 import React, { useContext, useEffect } from 'react'
 
-import { ViewerContext } from './Viewer'
+import { ViewerContext } from '../Viewer'
 
 export const PlateauTerrain: React.FC = () => {
     const viewer = useContext(ViewerContext)

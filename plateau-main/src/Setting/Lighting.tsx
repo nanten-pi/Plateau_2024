@@ -1,7 +1,7 @@
 import { Cartesian3 } from 'cesium'
 import React, { useContext, useEffect } from 'react'
 
-import { ViewerContext } from './Viewer'
+import { ViewerContext } from '../Viewer'
 
 // 適当な球面調和関数の係数
 // https://cesium.com/learn/cesiumjs/ref-doc/ImageBasedLighting.html#sphericalHarmonicCoefficients
