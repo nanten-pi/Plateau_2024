@@ -29,6 +29,10 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Slide from '@mui/material/Slide';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import {Viewer} from './Viewer';
 import { PlateauOrtho } from './PlateauOrtho';
@@ -117,7 +121,7 @@ function DashboardContent() {
     setSort(event.target.value as string);
   };
 
-  const [openinfo, setOpeninfo] = React.useState(false);//情報入力のはずだけどUIが何も映らなくなる
+  const [openinfo, setOpeninfo] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpeninfo(true);
@@ -127,6 +131,32 @@ function DashboardContent() {
     setOpeninfo(false);
   };
 
+  const [checked, setChecked] = React.useState([true, false]);
+
+  const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, checked[0]]);
+  };
+
+  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, checked[1]]);
+  };
+
+  const handleChange3 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, checked[2]]);
+  };
+
+  const handleChange4 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, checked[3]]);
+  };
+
+  const handleChange5 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, checked[4]]);
+  };
+
+  const handleChange6 = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setChecked([event.target.checked, checked[5]]);
+  };
+  
   return (
     <ThemeProvider theme={mdTheme}>
       <Box sx={{ display: 'flex' }}>
@@ -184,21 +214,21 @@ function DashboardContent() {
           </Toolbar>
           <Divider />
           <Divider />
-          <Button variant="text">土砂災害</Button>
+          <Typography variant="h4" gutterBottom>土砂災害</Typography>
           <Divider />
           <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="Plateau地図" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="地理院地図" />
+            <FormControlLabel control={<Checkbox checked={checked[0]} onChange={handleChange1}/>} label="Plateau地図" />
+            <FormControlLabel control={<Checkbox checked={checked[1]} onChange={handleChange2}/>} label="地理院地図" />
           </FormGroup>
           <Divider />
           <Divider />
-          <Button variant="text">情報共有</Button>
+          <Typography variant="h4" gutterBottom>情報共有</Typography>
           <Divider />
           <FormGroup>
-            <FormControlLabel control={<Checkbox defaultChecked />} label="浸水" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="土石" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="雨雲" />
-            <FormControlLabel control={<Checkbox defaultChecked />} label="津波" />
+            <FormControlLabel control={<Checkbox checked={checked[2]} onChange={handleChange3}/>} label="浸水" />
+            <FormControlLabel control={<Checkbox checked={checked[3]} onChange={handleChange4}/>} label="土石" />
+            <FormControlLabel control={<Checkbox checked={checked[4]} onChange={handleChange5}/>} label="雨雲" />
+            <FormControlLabel control={<Checkbox checked={checked[5]} onChange={handleChange6}/>} label="津波" />
           </FormGroup>
           <Divider />
           <Box sx={{ minWidth: 120 }}>
