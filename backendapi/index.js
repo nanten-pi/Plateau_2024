@@ -15,7 +15,7 @@ const db = new sqlite3.Database("./main.db", (err) => {
     } else {
         db.serialize(() => {
             //都度table削除（あれば）
-            db.run("drop table if exists lists");
+            //db.run("drop table if exists lists");
             //table生成（無ければ）
             db.run("create table if not exists lists( \
                 id integer primary key autoincrement, \

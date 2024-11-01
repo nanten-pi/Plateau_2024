@@ -1,24 +1,65 @@
-//重たい
+import { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
 import { ViewerContext } from './Viewer';
-import { useEffect, useContext } from 'react';
-//importしたい機能を「,」の後に追記
-import { UrlTemplateImageryProvider } from 'cesium';
+import * as Cesium from 'cesium';
 
-export const template_viewer: React.FC = () => {
+export const JsoWriter: React.FC = () => {
     const viewer = useContext(ViewerContext);
+    const [requestData, setRequestData] = useState<{
+        name: string;
+        longitude: number | null;
+        latitude: number | null;
+        altitude: number | null;
+    }>({
+        name: "Hiroshimast",
+        longitude: null,
+        latitude: null,
+        altitude: null,
+    });
 
     useEffect(() => {
         if (viewer?.isDestroyed() !== false) {
             return;
         }
-        //ここから先に追記(中身を削除して)
-        var positron = new UrlTemplateImageryProvider({
-            url: 'url~~~.png',
-            credit: 'creditがある場合は記入'
-        });
-        //viewerに渡せます
-        viewer.scene.imageryLayers.addImageryProvider(positron);
+        // クリックイベントの設定
+        viewer.screenSpaceEventHandler.setInputAction((click: { position: Cesium.Cartesian2; }) => {
+            // クリック位置を地理座標に変換
+            const cartesian = viewer.camera.pickEllipsoid(click.position);
+            if (cartesian) {
+                const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+                const longitude = Cesium.Math.toDegrees(cartographic.longitude);
+                const latitude = Cesium.Math.toDegrees(cartographic.latitude);
+                const altitude = cartographic.height;
+
+                // requestDataにクリック位置の座標をセット
+                setRequestData({
+                    name: "Hiroshimast",
+                    longitude,
+                    latitude,
+                    altitude,
+                });
+
+                console.log("Clicked Coordinates:", longitude, latitude, altitude);
+            }
+        }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+
+        return () => {
+            viewer.destroy();
+        };
     }, [viewer]);
 
-    return null;
+    const postData = async () => {
+        try {
+            const response = await axios.post('http://localhost:3001/lists', requestData);
+            console.log('Data sent successfully:', response.data);
+        } catch (error) {
+            console.error('Error posting data:', error);
+        }
+    };
+
+    return (
+        <div>
+            <button onClick={postData}>Send Data</button>
+        </div>
+    );
 };
