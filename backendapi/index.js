@@ -26,11 +26,6 @@ const db = new sqlite3.Database("./main.db", (err) => {
             )", (err) => {
                 if (err) {
                     console.error("table error: " + err.message);
-                } else {
-                    //初期データinsert
-                    db.run("insert into lists(name,longitude,latitude,altitude) values('Hiroshimaa',133.4553 ,34.3853, 50)");
-                    db.run("insert into lists(name,longitude,latitude,altitude) values('Hiroshimab',134.4553 ,35.3853, 50)");
-                    db.run("insert into lists(name,longitude,latitude,altitude) values('Hiroshimac',133.4553 ,36.3853 , 50)");
                 }
             });
         });
