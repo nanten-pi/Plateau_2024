@@ -1,3 +1,5 @@
 #symbolic
 plateau-main\public
 plateau-main/public/cesium
+plateau-main/node_modules
+backendapi/node_modules
