@@ -2,8 +2,7 @@
 
 ## Gitのルール  
 
-<https://qiita.com/nash_efp/items/b937df8cd0f852308e09>  
-<https://qiita.com/homhom44/items/9f13c646fa2619ae63d0>  
+Master,Main,Releace,Developは絶対に触らないでください。
 
 ### commitに関するルール  
 
@@ -17,7 +16,7 @@
 ### pushに関するルール
 
 1.絶対にmain,master,releace,developにpushしない  
-2.node_modules,.nextやシンボリックリンクはpushしない  
+2.node_modules,.nextやシンボリックリンクはpushしない（.gitignoreに記載すること）
 
 ## 設計に関して  
 
